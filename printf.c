@@ -28,6 +28,8 @@ int _printf(const char *format, ...)
 				counter += putstr(va_arg(ap, char *));
 			else if (format[i] == '%')
 				counter += _putchar('%');
+			else if (format[i] == 'd' || format[i] == 'i')
+				putnbr(va_arg(ap, int), &counter);
 			else
 			{
 				counter += _putchar('%');

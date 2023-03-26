@@ -8,5 +8,6 @@
 int _putchar(int c);
 int putstr(char *s);
 int _printf(const char *format, ...);
+void	putnbr(int n, int *counter);
 
 #endif
