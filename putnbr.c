@@ -46,7 +46,7 @@ void putnbr_binary(unsigned int n, int *counter)
 }
 
 /**
- *puntbr_hex - print the hex value of an int
+ *putnbr_hex - print the hex value of an int
  *@n: the number to be converted to hex
  *@isupper: flag to specify if the hex is upper or lower case
  *@counter: countes the printed characters

@@ -1,6 +1,41 @@
 #include "main.h"
 
 /**
+ *select_id - executes the right function
+ *@ap: the aprgument pointer of the variadic function
+ *@c: the character to check
+ *@counter: character counter
+ *Return: returns nothing
+ */
+
+void select_id(va_list ap, int c, int *counter)
+{
+	if (c == 'c')
+		*counter += _putchar(va_arg(ap, int));
+	else if (c == 's')
+		*counter += putstr(va_arg(ap, char *));
+	else if (c == '%')
+		*counter += _putchar('%');
+	else if (c == 'd' || c == 'i')
+		putnbr(va_arg(ap, int), counter);
+	else if (c == 'b')
+		putnbr_binary(va_arg(ap, int), counter);
+	else if (c == 'u')
+		putunbr_octal(va_arg(ap, unsigned int), 10, counter);
+	else if (c == 'o')
+		putunbr_octal(va_arg(ap, unsigned int), 8, counter);
+	else if (c == 'x')
+		putnbr_hex(va_arg(ap, unsigned int), 0, counter);
+	else if (c == 'X')
+		putnbr_hex(va_arg(ap, unsigned int), 1, counter);
+	else
+	{
+		*counter += _putchar('%');
+		*counter += _putchar(c);
+	}
+}
+
+/**
  *_printf - prints a formatted string
  *@format: the format of the string to print
  *Return: the number of characters printed
@@ -22,29 +57,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (!format[i])
 				return (-1);
-			if (format[i] == 'c')
-				counter += _putchar(va_arg(ap, int));
-			else if (format[i] == 's')
-				counter += putstr(va_arg(ap, char *));
-			else if (format[i] == '%')
-				counter += _putchar('%');
-			else if (format[i] == 'd' || format[i] == 'i')
-				putnbr(va_arg(ap, int), &counter);
-			else if (format[i] == 'b')
-				putnbr_binary(va_arg(ap, int), &counter);
-			else if (format[i] == 'u')
-				putunbr_octal(va_arg(ap, unsigned int), 10, &counter);
-			else if (format[i] == 'o')
-				putunbr_octal(va_arg(ap, unsigned int), 8, &counter);
-			else if (format[i] == 'x')
-				putnbr_hex(va_arg(ap, unsigned int), 0, &counter);
-			else if (format[i] == 'X')
-				putnbr_hex(va_arg(ap, unsigned int), 1, &counter);
-			else
-			{
-				counter += _putchar('%');
-				counter += _putchar(format[i]);
-			}
+			select_id(ap, format[i], &counter);
 		}
 		else
 			counter += _putchar(format[i]);
