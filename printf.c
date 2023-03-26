@@ -28,6 +28,11 @@ int _printf(const char *format, ...)
 				counter += putstr(va_arg(ap, char *));
 			else if (format[i] == '%')
 				counter += _putchar('%');
+			else
+			{
+				counter += _putchar('%');
+				counter += _putchar(format[i]);
+			}
 		}
 		else
 			counter += _putchar(format[i]);
