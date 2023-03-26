@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
 
 int _putchar(int c);
 int putstr(char *s);

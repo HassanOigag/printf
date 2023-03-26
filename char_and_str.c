@@ -8,9 +8,7 @@
 
 int _putchar(int c)
 {
-	unsigned char C = (unsigned char) c;
-
-	return (write(1, &C, 1));
+	return (write(1, &c, 1));
 }
 
 /**
