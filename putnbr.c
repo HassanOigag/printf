@@ -1,4 +1,10 @@
 #include "main.h"
+/**
+ *putnbr - prints a number to stdout
+ *@n: the number to print
+ *@counter: the address of the counter of printed characters
+ *Return: nothing
+ */
 
 void putnbr(int n, int *counter)
 {
@@ -18,5 +24,16 @@ void putnbr(int n, int *counter)
 	{
 		putnbr(n / 10, counter);
 		putnbr(n % 10, counter);
+	}
+}
+
+void putnbr_binary(int n, int *counter)
+{
+	if (n == 0 || n == 1)
+		*counter += _putchar(n + '0');
+	else
+	{
+		putnbr_binary(n / 2, counter);
+		putnbr_binary(n % 2, counter);
 	}
 }
