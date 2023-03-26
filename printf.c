@@ -32,6 +32,14 @@ int _printf(const char *format, ...)
 				putnbr(va_arg(ap, int), &counter);
 			else if (format[i] == 'b')
 				putnbr_binary(va_arg(ap, int), &counter);
+			else if (format[i] == 'u')
+				putunbr_octal(va_arg(ap, unsigned int), 10, &counter);
+			else if (format[i] == 'o')
+				putunbr_octal(va_arg(ap, unsigned int), 8, &counter);
+			else if (format[i] == 'x')
+				putnbr_hex(va_arg(ap, unsigned int), 0, &counter);
+			else if (format[i] == 'X')
+				putnbr_hex(va_arg(ap, unsigned int), 1, &counter);
 			else
 			{
 				counter += _putchar('%');

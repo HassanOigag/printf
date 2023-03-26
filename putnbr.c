@@ -44,3 +44,47 @@ void putnbr_binary(unsigned int n, int *counter)
 		putnbr_binary(n % 2, counter);
 	}
 }
+
+/**
+ *puntbr_hex - print the hex value of an int
+ *@n: the number to be converted to hex
+ *@isupper: flag to specify if the hex is upper or lower case
+ *@counter: countes the printed characters
+ *Return: nothing
+ */
+
+void putnbr_hex(unsigned int n, int isupper, int *counter)
+{
+	char *base;
+
+	if (isupper)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (n >= 0 && n < 16)
+		*counter += _putchar(base[n]);
+	else
+	{
+		putnbr_hex(n / 16, isupper, counter);
+		putnbr_hex(n % 16, isupper, counter);
+	}
+}
+
+/**
+ *putunbr_octal - prints an unsigned int or converts it to octal
+ *@n: the number to be converted
+ *@base: the base to conver to
+ *@counter: countes the number² of printed characters
+ *Return: nothing
+ */
+
+void putunbr_octal(unsigned int n, int base, int *counter)
+{
+	if (n >= 0 && n < base)
+		*counter += _putchar(n + '0');
+	else
+	{
+		putunbr_octal(n / base, base, counter);
+		putunbr_octal(n % base, base, counter);
+	}
+}
