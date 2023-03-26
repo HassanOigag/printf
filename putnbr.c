@@ -27,8 +27,20 @@ void putnbr(int n, int *counter)
 	}
 }
 
+/**
+ *putnbr_binary - print the binary of a number
+ *@n: the number in hand
+ *@counter: it counts the printed characters
+ *Return: nothing
+ */
+
 void putnbr_binary(int n, int *counter)
 {
+	if (n < 0)
+	{
+		counter += _putchar('-');
+		n = -n;
+	}
 	if (n == 0 || n == 1)
 		*counter += _putchar(n + '0');
 	else
