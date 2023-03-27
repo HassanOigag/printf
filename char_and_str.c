@@ -14,6 +14,7 @@ int _putchar(int c)
 /**
  *putstr - prints a string and non printable hex values
  *@s: the string to be printed
+ *@all: weather to print no printables or not
  *Return: returns the size of the string
  */
 

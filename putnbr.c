@@ -88,3 +88,24 @@ void putunbr_octal(unsigned int n, unsigned int base, int *counter)
 		putunbr_octal(n % base, base, counter);
 	}
 }
+
+/**
+ *put_address - prints the void *
+ *@n: the address to be printed
+ *@counter: countes the printed characters
+ *Return: returns nothing
+ */
+
+void put_address(unsigned long int n, int *counter)
+{
+	char *base = "0123456789abcdef";
+
+	if (n < 16)
+		*counter += _putchar(base[n]);
+	else
+	{
+		put_address(n / 16, counter);
+		put_address(n % 16, counter);
+	}
+}
+
