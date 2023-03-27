@@ -61,7 +61,7 @@ void putnbr_hex(unsigned int n, int isupper, int *counter)
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
-	if (n >= 0 && n < 16)
+	if (n < 16)
 		*counter += _putchar(base[n]);
 	else
 	{
@@ -78,9 +78,9 @@ void putnbr_hex(unsigned int n, int isupper, int *counter)
  *Return: nothing
  */
 
-void putunbr_octal(unsigned int n, int base, int *counter)
+void putunbr_octal(unsigned int n, unsigned int base, int *counter)
 {
-	if (n >= 0 && n < base)
+	if (n < base)
 		*counter += _putchar(n + '0');
 	else
 	{
