@@ -6,7 +6,7 @@
 #include <limits.h>
 
 int		_putchar(int c);
-int 	putstr(char *s);
+int 	putstr(char *s, int all);
 int 	_printf(const char *format, ...);
 void 	select_id(va_list ap, int c, int *counter);
 void	putnbr(int n, int *counter);

@@ -10,7 +10,7 @@ void putnbr(int n, int *counter)
 {
 	if (n == -2147483648)
 	{
-		*counter += putstr("-2147483648");
+		*counter += putstr("-2147483648", 0);
 		return;
 	}
 	if (n < 0)

@@ -13,7 +13,7 @@ void select_id(va_list ap, int c, int *counter)
 	if (c == 'c')
 		*counter += _putchar(va_arg(ap, int));
 	else if (c == 's')
-		*counter += putstr(va_arg(ap, char *));
+		*counter += putstr(va_arg(ap, char *), 0);
 	else if (c == '%')
 		*counter += _putchar('%');
 	else if (c == 'd' || c == 'i')
@@ -28,6 +28,8 @@ void select_id(va_list ap, int c, int *counter)
 		putnbr_hex(va_arg(ap, unsigned int), 0, counter);
 	else if (c == 'X')
 		putnbr_hex(va_arg(ap, unsigned int), 1, counter);
+	else if (c == 'S')
+		*counter += putstr(va_arg(ap, char *), 1);
 	else
 	{
 		*counter += _putchar('%');

@@ -12,12 +12,12 @@ int _putchar(int c)
 }
 
 /**
- *putstr - prints a string
+ *putstr - prints a string and non printable hex values
  *@s: the string to be printed
  *Return: returns the size of the string
  */
 
-int putstr(char *s)
+int putstr(char *s, int all)
 {
 	int i = 0;
 	int counter = 0;
@@ -26,8 +26,18 @@ int putstr(char *s)
 		s = "(null)";
 	while (s[i])
 	{
-		counter += _putchar(s[i]);
+		if (((s[i] > 0 && s[i] < 32) || s[i] >= 127) && all)
+		{
+			counter += _putchar('\\');
+			counter += _putchar('x');
+			if (s[i] < 16)
+				counter += _putchar('0');
+			putnbr_hex((unsigned int)s[i], 1, &counter);
+		}
+		else
+			counter += _putchar(s[i]);
 		i++;
 	}
 	return (counter);
 }
+
