@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * print_rot13 - prints a string using rot13
  * @l: list of arguments from _printf
@@ -5,7 +7,7 @@
  * if a flag is passed to _printf
  * Return: length of the printed string
  */
-int print_rot13(va_list ap, int *counter)
+int rot_13(va_list ap, int *counter)
 {
 	int i, counter;
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
