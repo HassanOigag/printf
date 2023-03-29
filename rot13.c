@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * print_rot13 - prints a string using rot13
- * @l: list of arguments from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
+ * rot_13 - prints a string using rot13
+ * @ap: list of arguments from _printf
+ * @counter: pointer to the lenght of the string
  * Return: length of the printed string
  */
 int rot_13(va_list ap, int *counter)
