@@ -42,3 +42,26 @@ int putstr(char *s, int all)
 	return (counter);
 }
 
+/**
+ *rev_str - prints the reverse string
+ *@str: the string in hand
+ *Return: the number of chars in string
+ */
+
+int rev_str(char *str)
+{
+	int i = 0;
+	int counter = 0;
+
+	if (!str)
+		return (putstr("(null)", 0));
+	while (str[i])
+		i++;
+	i--;
+	while (i >= 0)
+	{
+		counter += _putchar(str[i]);
+		i--;
+	}
+	return (counter);
+}

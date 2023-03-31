@@ -43,6 +43,8 @@ void select_id(va_list ap, int c, int *counter)
 		else
 			*counter += putstr("(nil)", 0);
 	}
+	else if (c == 'r')
+		*counter += rev_str(va_arg(ap, char *));
 	else
 	{
 		*counter += _putchar('%');
