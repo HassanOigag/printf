@@ -85,6 +85,8 @@ int rot13(char *str)
 			counter += _putchar((((str[i] - 'a') + 13) % 26) + 'a');
 		else if (str[i] >= 'A' && str[i] <= 'Z')
 			counter += _putchar((((str[i] - 'A') + 13) % 26) + 'A');
+		else
+			counter += _putchar(str[i]);
 		i++;
 	}
 	return (counter);
