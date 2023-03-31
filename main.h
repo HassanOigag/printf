@@ -14,6 +14,5 @@ void	putnbr_binary(unsigned int n, int *counter);
 void	putnbr_hex(unsigned int n, int isupper, int *counter);
 void 	put_address(unsigned long int n, int *counter);
 void 	putunbr_octal(unsigned int n, unsigned int base, int *counter);
-char	rot_13(char *s, int *counter);
 
 #endif

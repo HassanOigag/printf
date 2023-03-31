@@ -30,16 +30,11 @@ void select_id(va_list ap, int c, int *counter)
 		putnbr_hex(va_arg(ap, unsigned int), 1, counter);
 	else if (c == 'S')
 		*counter += putstr(va_arg(ap, char *), 1);
-<<<<<<< HEAD
 	else if (c == 'p')
 	{
 		*counter += putstr("0x", 0);
 		put_address(va_arg(ap, unsigned long int), counter);
 	}
-=======
-	else if (c == 'R')
-		rot_13(va_arg(ap, char *), counter);
->>>>>>> cea13a5ee8de055a266e8039e943061066221a3f
 	else
 	{
 		*counter += _putchar('%');
