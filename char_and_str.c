@@ -65,3 +65,27 @@ int rev_str(char *str)
 	}
 	return (counter);
 }
+
+/**
+ *rot13 - prints the rotated string
+ *@str: the string in hand
+ *Return: number of printed characters
+ */
+
+int rot13(char *str)
+{
+	int i = 0;
+	int counter = 0;
+
+	if (!str)
+		return (putstr("(null)", 0));
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			counter += _putchar((((str[i] - 'a') + 13) % 26) + 'a');
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+			counter += _putchar((((str[i] - 'A') + 13) % 26) + 'A');
+		i++;
+	}
+	return (counter);
+}

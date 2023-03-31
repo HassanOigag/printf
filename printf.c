@@ -1,5 +1,19 @@
 #include "main.h"
 
+void print_address(va_list ap, int *counter)
+{
+	unsigned long int addrr;
+
+	addrr = va_arg(ap, unsigned long int);
+	if (addrr)
+	{
+		*counter += putstr("0x", 0);
+		put_address(addrr, counter);
+	}
+	else
+		*counter += putstr("(nil)", 0);
+}
+
 /**
  *select_id - executes the right function
  *@ap: the aprgument pointer of the variadic function
@@ -10,8 +24,6 @@
 
 void select_id(va_list ap, int c, int *counter)
 {
-	unsigned long int addrr;
-
 	if (c == 'c')
 		*counter += _putchar(va_arg(ap, int));
 	else if (c == 's')
@@ -33,18 +45,11 @@ void select_id(va_list ap, int c, int *counter)
 	else if (c == 'S')
 		*counter += putstr(va_arg(ap, char *), 1);
 	else if (c == 'p')
-	{
-		addrr = va_arg(ap, unsigned long int);
-		if (addrr)
-		{
-			*counter += putstr("0x", 0);
-			put_address(addrr, counter);
-		}
-		else
-			*counter += putstr("(nil)", 0);
-	}
+		print_address(ap, counter);
 	else if (c == 'r')
 		*counter += rev_str(va_arg(ap, char *));
+	else if (c == 'R')
+		*counter += rot13(va_arg(ap, char *));
 	else
 	{
 		*counter += _putchar('%');
