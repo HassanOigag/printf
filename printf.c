@@ -10,6 +10,8 @@
 
 void select_id(va_list ap, int c, int *counter)
 {
+	unsigned long int addrr;
+
 	if (c == 'c')
 		*counter += _putchar(va_arg(ap, int));
 	else if (c == 's')
@@ -32,8 +34,14 @@ void select_id(va_list ap, int c, int *counter)
 		*counter += putstr(va_arg(ap, char *), 1);
 	else if (c == 'p')
 	{
-		*counter += putstr("0x", 0);
-		put_address(va_arg(ap, unsigned long int), counter);
+		addrr = va_arg(ap, unsigned long int);
+		if (addrr)
+		{
+			*counter += putstr("0x", 0);
+			put_address(addrr, counter);
+		}
+		else
+			*counter += putstr("(nil)", 0);
 	}
 	else
 	{
